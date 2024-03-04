@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let waterScore = 0
+        let gunScore = 0
+        let snakeScore = 0
+        let totalScore = 0
+        let chances = 5
+
+        while(chances != 0){
+
+            let input = prompt("Choose : snake, water, gun")
+
+            if(input === "water"){
+                waterScore++
+                totalScore++
+                chances--
+            }
+
+            else if(input === "gun"){
+                gunScore += 2
+                totalScore += 2
+                chances--
+            }
+
+            else if(input === "snake"){
+                totalScore = waterScore - gunScore
+                chances--
+                if(snakeScore <= 0){
+                    console.log("Game Over")
+                    break
+                }
+            }
+
+            else{
+                console.log("Invalid Input")
+            }
+        }
+
+        console.log(`Total Score : ${totalScore}`)
+        
+    </script>
+</body>
+</html>
